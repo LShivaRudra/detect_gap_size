@@ -1,12 +1,3 @@
----
-title: Gap Size Detection
-updated: 2023-12-16 20:03:30Z
-created: 2023-12-05 20:45:14Z
-latitude: 28.66189760
-longitude: 77.22739580
-altitude: 0.0000
----
-
 ## Aim of the Repo
 To detect the gap in front of the drone using a camera and to predict if the drone can pass through it or not. If not, the amount with which it has to morph should be predicted.
 
