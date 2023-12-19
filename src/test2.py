@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import pyrealsense2 as rs
-import math
 
 # Configure depth and color streams
 pipeline = rs.pipeline()
@@ -72,13 +71,8 @@ try:
         max_rect = None # Used to store coordinates of the max-area rectangle. It's through this rectangle which we want the drone to pass
 
         for contour in contours: # Iterate over all the contours
-    # Get the minimum area rectangle
-            rect = cv2.minAreaRect(contour)
-            box = cv2.boxPoints(rect)
-            box = np.int0(box)
-            x, y, w, h = cv2.boundingRect(box)
-
-
+            # Get the bounding rectangle
+            x, y, w, h = cv2.boundingRect(contour) 
 
             # Calculate the area of the rectangle
             rect_area = w * h
@@ -87,7 +81,6 @@ try:
             if rect_area > max_area:
                 max_area = rect_area
                 max_rect = (x, y, w, h)
-
 
         # Draw the maximum rectangle on the image
         x, y, w, h = max_rect
